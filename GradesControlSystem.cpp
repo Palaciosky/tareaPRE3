@@ -47,7 +47,7 @@ try{
     bool existe; //Bandera para verificacion si el alumno existe.
     char continuar;
     int idx = 0;
-    float suma, suma2, suma3,varprue, varprue2, sumar, suma4, ax, suma5;
+    float suma, suma2, suma3,varprue, varprue2, sumar, suma4, ax, suma5, ax5;
     vector<float> elementos;
     string nombre; //Variable que servira para la busqueda de los nombres de los alumnos
     
@@ -236,39 +236,38 @@ do{
                 //Escriba el codigo necesario para realizarlo.
                 system("cls");
                 for(int i=0;i<n;i++)
+				 // ciclica anidada para recorrer la matriz, eso si para que sume solo                 
+				 // la fila la variable debe estar siempre == 0, para que no se acumule y no de falsos positivco
                     {
-                       cout<<"|================================================================|"<<endl;
-                       cout<<"Nota promedio de "<<nombres[i]<<": "<<endl<<endl;
+                    	float varpruex = 0;
+                    	float ax2 = 0;
+                    	sumar = i +1;
+                       
+                       cout<<"Nota promedio de "<<nombres[i]<<": "<<endl;
+                       
                         for(int j=0;j<m;j++)
                         {
-                        		suma2 = j+1;
                         	
-                        	//cout<<mi_arreglo[i][j]<<"|\|"<<endl;
-                        cout<<"| NOTA "<<suma2 <<":"<<mi_arreglo[i][j]<<endl;
-						cout<<"|	"<<endl;
-                        varprue2 = mi_arreglo[i][j];
-						varprue += mi_arreglo[i][j];
-                       
-                           // cout<<"|sumatoria es "<<suma<<"|valor es i|"<<i<<"|valor j es |"<<suma2;
+                        	varpruex += mi_arreglo[i][j];
                         	
+                        	ax2 = j+1;
+								
                         }
-                        suma3 += varprue2;
-                        	
-                        cout<<endl<<endl;
-                        
-                        cout<<"| cantidad de calificaciones es "<<suma2<<endl;
-                        cout<<"| total notas obtenidas 1 "<<varprue<<endl;
-                        cout<<"| suma calif obtenidas |1| "<<varprue2<<endl;
-						cout<<"| suma calif obtenidas |2| "<<suma3<<endl;
-						cout<<"|================================================================|"<<endl;
+                        	suma4 = varpruex/ax2;
+                        	cout<<"TOTAL PROM: "<<"    "<<suma4<<endl<<endl<<endl;
+                        	suma2 += suma4;
+                        	ax5 += ax2;
+                        	ax += sumar;    
+							sumar += varpruex;                    	
 						}
-							suma2 += suma2;
-							
+						
+						
 						 cout<<endl<<endl;
 						cout<<"prueba avr si sirve "<<suma3<<endl;	
 						cout<<"================================================================"<<endl;
 						cout<<"| Cantidad de calificaciones es "<<suma2<<endl;
-                        cout<<"| Total notas obtenidas :"<<varprue<<endl;
+                        cout<<"| Total notas obtenidas :"<<ax5<<endl;
+                        cout<<"| PROMEDIO FINAL :"<<sumar<<endl;
                         cout<<"================================================================"<<endl;
 						
             break;
